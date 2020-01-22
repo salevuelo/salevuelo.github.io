@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vuelo 5555 - Encontra mejores precios por fecha</title>
+    <link rel="icon" href="assets/images/favicon1.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/images/favicon1.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles-f9c5d9f6.css"/>
+
+</head>
+<body data-ng-app="app">
+
+    <header id="site-header">
+        <div class="container">
+            <div class="pull-left logo">Vuelo <span class="alt">5555</span></div>
+            <ul class="pull-right menu">
+                <li><a href="#/">DESTINOS</a></li>
+                <li><a href="#/about">ACERCA DE</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="site-bar" data-ng-controller="BarController as bar">
+        <div class="container">
+            <h1>{{bar.data.title}}</h1>
+            <p>{{bar.data.description}}</p>
+        </div>
+        <div class="page-loader" data-ng-show="bar.data.loading"><div class="throbber"></div></div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+    </section>
+
+    <script src="assets.min-e5064c17.js"></script>
+    <script src="app.min-bd861c91.js"></script>
+</body>
+</html>
