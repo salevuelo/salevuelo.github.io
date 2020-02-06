@@ -457,7 +457,7 @@ angular.module("angular-preload-image",[]);angular.module("angular-preload-image
         var monthsPriceVisitor = {months: {}};
         monthsPriceVisitor.visit = function(priceEntry) {
             if (!(priceEntry.month in this.months)) {
-                this.months[priceEntry.month] = {}
+                this.months[priceEntry.month] = { month_str: formatDate(priceEntry.month) }
             }
         };
         visitPrices(prices, monthsPriceVisitor);
@@ -467,6 +467,28 @@ angular.module("angular-preload-image",[]);angular.module("angular-preload-image
     function format(price) {
         return "USD " + price.toFixed(0);
     }
+
+    function capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function formatDate(dateStr) {
+        var parts = dateStr.split('-');
+        if (parts.length < 3) {
+            parts[2] = 1;
+            var date = new Date(parts[0], parts[1] - 1, parts[2]);
+            var month = date.toLocaleString('es', { month: 'long'});
+            var dateFmt = capitalize(month) + ' ' + parts[0];
+            return dateFmt
+        } else {
+            var date = new Date(parts[0], parts[1] - 1, parts[2]);
+            var weekDay = date.toLocaleString('es', { weekday: 'short' });
+            var month = date.toLocaleString('es', { month: 'long'});
+            var dateFmt = capitalize(weekDay) + ' ' + parts[2] + ' ' + capitalize(month);
+            return dateFmt;
+        }
+    }
+
     // END API
 
     // publish external API by extending priceUtils
@@ -475,7 +497,8 @@ angular.module("angular-preload-image",[]);angular.module("angular-preload-image
             'bestPriceIn': bestPriceIn,
             'destinationPricesPerMonth': destinationPricesPerMonth,
             'monthsIn': monthsIn,
-            'format': format
+            'format': format,
+            'formatDate': formatDate
         });
     }
 
@@ -498,8 +521,11 @@ function visitPrices(prices, visitorObj) {
                         "amount_str": priceUtils.format(price.price_usd),
                         "destination": destination.destination,
                         "month": yearMonth,
+                        "month_str": priceUtils.formatDate(yearMonth),
                         "date_from": price.date_from,
+                        "date_from_str": priceUtils.formatDate(price.date_from),
                         "date_to": price.date_to,
+                        "date_to_str": priceUtils.formatDate(price.date_to),
                         "provider": provider
                     });
                 }
