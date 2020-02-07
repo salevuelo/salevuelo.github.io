@@ -533,3 +533,153 @@ function visitPrices(prices, visitorObj) {
         }
     } 
 }
+
+(function (window, document) {
+    'use strict';
+
+    // attach library as a property of window
+    var destinationGroups = window.destinationGroups || (window.destinationGroups = {});
+
+    function getData() {
+    	return data
+    }
+
+    // publish external API by extending destinationGroups
+    function publishExternalAPI(destinationGroups) {
+        angular.extend(destinationGroups, {
+            'getData': getData
+        });
+    }
+
+    publishExternalAPI(destinationGroups);
+
+})(window, document);
+
+var data = {
+	"usa": {
+		"name": "Estados Unidos",
+		"stayDays": 14,
+		"destinations": {
+			"MIA": {
+				"name": "Miami",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,MIA&to=MIA,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=MIA&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Miami&to_city1=MIA&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Miami-MIA?s=BUE-MIA.%D_D%-%D_M%-%D_Y%.MIA-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [800, 700, 600]
+			},
+			"ORL": {
+				"name": "Orlando",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,ORL&to=ORL,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=ORL&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Orlando&to_city1=ORL&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Orlando-MCO?s=BUE-MCO.%D_D%-%D_M%-%D_Y%.MCO-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [800, 700, 600]
+			},
+			"NYC": {
+				"name": "Nueva York",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,NYC&to=NYC,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=NYC&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Nueva%20York&to_city1=NYC&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Nueva_York-NYC?s=BUE-NYC.%D_D%-%D_M%-%D_Y%.NYC-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [850, 750, 650]
+			},
+			"LAX": {
+				"name": "Los Angeles",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,LAX&to=LAX,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=LAX&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Los %C3%81ngeles&to_city1=LAX&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Los_Angeles-LAX?s=BUE-LAX.%D_D%-%D_M%-%D_Y%.LAX-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [850, 750, 650]
+			}			
+		}
+	},
+	"brazil": {
+		"name": "Brasil",
+		"stayDays": 7,
+		"destinations": {
+			"RIO": {
+				"name": "Rio de Janeiro",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,RIO&to=RIO,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=RIO&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Río%20de%20Janeiro&to_city1=RIO&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Rio_de_Janeiro-RIO?s=BUE-RIO.%D_D%-%D_M%-%D_Y%.RIO-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [350, 300, 250]
+			},
+			"BPS": {
+				"name": "Porto Seguro",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,BPS&to=BPS,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=BPS&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Porto%20Seguro&to_city1=BPS&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Porto_Seguro-BPS?s=BUE-BPS.%D_D%-%D_M%-%D_Y%.BPS-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [400, 350, 300]
+			},
+			"SSA": {
+				"name": "Salvador",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,SSA&to=SSA,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=SSA&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Salvador%20de%20Bahía&to_city1=SSA&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Salvador_de_Bahia-SSA?s=BUE-SSA.%D_D%-%D_M%-%D_Y%.SSA-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [450, 400, 350]
+			},
+			"REC": {
+				"name": "Recife",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,REC&to=REC,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=REC&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Recife&to_city1=REC&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Recife-REC?s=BUE-REC.%D_D%-%D_M%-%D_Y%.REC-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [500, 400, 350]
+			},			
+			"NAT": {
+				"name": "Natal",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,NAT&to=NAT,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=NAT&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Natal&to_city1=NAT&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Natal-NAT?s=BUE-NAT.%D_D%-%D_M%-%D_Y%.NAT-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [500, 400, 350]
+			}			
+		}
+	},
+	"europe": {
+		"name": "Europa",
+		"stayDays": 14,
+		"destinations": {
+			"MAD": {
+				"name": "Madrid",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,MAD&to=MAD,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=MAD&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Madrid&to_city1=MAD&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Madrid-MAD?s=BUE-MAD.%D_D%-%D_M%-%D_Y%.MAD-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [900, 800, 700]
+			},
+			"BCN": {
+				"name": "Barcelona",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,BCN&to=BCN,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=BCN&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Barcelona&to_city1=BCN&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Barcelona-BCN?s=BUE-BCN.%D_D%-%D_M%-%D_Y%.BCN-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [900, 800, 700]
+			},
+			"ROM": {
+				"name": "Roma",
+				"urls": {
+					"almundo": "https://almundo.com.ar/flights/results?from=BUE,ROM&to=ROM,BUE&date=%D_Y%-%D_M%-%D_D%,%H_Y%-%H_M%-%H_D%&adults=1",
+					"lan": "https://www.latam.com/es_ar/apps/personas/booking?fecha1_dia=%D_D%&fecha1_anomes=%D_Y%-%D_M%&fecha2_dia=%H_D%&fecha2_anomes=%H_Y%-%H_M%&from_city2=ROM&to_city2=BUE&auAvailability=1&ida_vuelta=ida_vuelta&vuelos_origen=Buenos%20Aires&from_city1=BUE&vuelos_destino=Roma&to_city1=ROM&flex=1&vuelos_fecha_salida_ddmmaaaa=%D_D%/%D_M%/%D_Y%&vuelos_fecha_regreso_ddmmaaaa=%H_D%/%H_M%/%H_Y%&cabina=Y&nadults=1&nchildren=0&ninfants=0&cod_promo=",
+					"turismocity": "https://www.turismocity.com.ar/vuelos/resultados-a-Roma-ROM?s=BUE-ROM.%D_D%-%D_M%-%D_Y%.ROM-BUE.%H_D%-%H_M%-%H_Y%"
+				},
+				"price_points": [1000, 900, 800]
+			}
+		}
+	}	
+}
