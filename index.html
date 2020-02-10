@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html data-ng-app="app">
+<head data-ng-controller="BarController as bar">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156982986-1"></script>
     <script>
@@ -11,7 +11,8 @@
       gtag('config', 'UA-157606578-1');
      </script>
 
-    <title>Sale Vuelo - Encontra mejores precios por fecha</title>
+    <title>{{bar.data.head_title}}</title>
+    <meta ng-repeat="entry in bar.data.meta_tags" name ="{{entry.name}}" content="{{entry.content}}">
     <link rel="icon" href="assets/images/favicon1.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="assets/images/favicon1.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="assets/css/styles-f9c5d9f6.css"/>
 
 </head>
-<body data-ng-app="app">
+<body>
 
     <header id="site-header">
         <div class="container">
@@ -47,6 +48,6 @@
     </section>
 
     <script src="assets.min-98ddcbc1.js"></script>
-    <script src="app.min-82edd7f8.js"></script>
+    <script src="app.min-f52d71ea.js"></script>
 </body>
 </html>
