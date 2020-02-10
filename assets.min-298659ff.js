@@ -557,6 +557,7 @@ function visitPrices(prices, visitorObj) {
 
 var data = {
 	"usa": {
+		"id": "usa",
 		"name": "Estados Unidos",
 		"stayDays": 14,
 		"destinations": {
@@ -599,6 +600,7 @@ var data = {
 		}
 	},
 	"brazil": {
+		"id": "brazil",
 		"name": "Brasil",
 		"stayDays": 7,
 		"destinations": {
@@ -650,6 +652,7 @@ var data = {
 		}
 	},
 	"europe": {
+		"id": "europe",
 		"name": "Europa",
 		"stayDays": 14,
 		"destinations": {
