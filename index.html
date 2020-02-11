@@ -12,7 +12,10 @@
      </script>
 
     <title>{{bar.data.head_title}}</title>
-    <meta ng-repeat="entry in bar.data.meta_tags" name ="{{entry.name}}" content="{{entry.content}}"/>
+<!--    <meta ng-repeat="entry in bar.data.meta_tags" name ="{{entry.name}}" content="{{entry.content}}"/> -->
+    <meta ng-repeat="entry in bar.data.meta_tags" name="twitter:card" content="summary" class="ng-scope">
+    <meta ng-repeat="entry in bar.data.meta_tags" name="twitter:title" content="Sale Vuelo - Vuelos a Brasil" class="ng-scope">
+    <meta ng-repeat="entry in bar.data.meta_tags" name="twitter:image" content="https://www.salevuelo.com/assets/images/brazil.jpg" class="ng-scope">
     <link rel="icon" href="assets/images/favicon1.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="assets/images/favicon1.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
